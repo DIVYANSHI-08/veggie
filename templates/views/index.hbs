@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="css/homestyle.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+</head>
+<body>
+    {{> header }}
+    {{#if isAuthenticated}}
+    
+    <div class="popup-screen">
+        <div class="popup-box">
+            <i class="fas fa-times close-btn"></i>
+            <h2>Location</h2>
+            <input type="text" name="loc" id="loc" placeholder="Enter Location Manually">
+            <button id="location">Detect Location</button>
+        </div>
+    </div>
+     
+    <div class = "contain">
+        <img src="css/images/back.png" id="back">
+        <h1 class="welcome">Welcome to Your Mandi</h1>
+        <button class= "btn" onclick="window.location.href = 'register';">Get Started</button>
+        
+        <div class="about" style="height:200px;" id="about">
+                <center>
+                    <h1 style="text-decoration: underline;">About Us</h1>
+                </center>
+                <div style="float:left; height:100%; width:25%"><img src="css/images/about.png" alt="about" style="    margin-left: 6%;
+    width: 167%;
+    height: 136%;
+    margin-top: 6%;"></div>
+        
+                <div style="float: right;
+                        width: 55%;
+                        margin: 0px;
+                        height: 100px;">
+                <center><h1><b>What do we have?</b></h1></center>
+                
+                <p style="padding: 2px;">The objective of our work is to enhance vegetable pricing analysis. Our tool began by
+                    making
+                    minor adjustments, but has since tremendously improved.</p>
+                <br>
+                <br>
+                <center>
+                    <h2><b>Objective</b></h2>
+                </center>
+                <p style="padding: 2px;">We are working to improve the farming community's comprehension of pricing changes. If
+                    we have
+                    better analytical tools, we can lessen price spikes for vegetables. This tool is simple to use
+                    for the farming community.</p>
+                    </div>
+            <br><br>
+            <center>
+                <h1 style="color: #621111;; font-size: 50px ;margin-top:20%">Explore Bunch of Vegetables with Us <br>
+                    at LOWEST Price Gauranteed!!
+                </h1>
+            </center>
+        
+        
+            <div class="sample">
+        
+                <div class="row_">
+                
+                    <div class="block column">
+                        <div class="item-image">
+                            <img src="css/images/green coriander.jpg" alt="Green Corriander">
+                        </div>
+                        <div class="detail">Green Coriander <br>₹50</div>
+                        <div class="btns">
+                            <button class="qty"
+                                onclick="document.getElementsByClassName('inp')[12].value = Number(document.getElementsByClassName('inp')[12].value)-1">-</button><input
+                                type="text" value="1" class="inp"><button class="qty"
+                                onclick="document.getElementsByClassName('inp')[12].value = Number(document.getElementsByClassName('inp')[12].value)+1">+</button>
+                            <br>
+                            <button onclick="location.replace('vegetables')"
+                                style="cursor: pointer; background-color: white; width: 56%; height: 25px; border: 1px solid #5d9508;">Add
+                                to Cart</button>
+                        </div>
+                    </div>
+                
+                    <div class="block column">
+                        <div class="item-image">
+                            <img src="css/images/onion.jpg" alt="Onion">
+                        </div>
+                        <div class="detail">Onion <br>₹50</div>
+                        <div class="btns">
+                            <button class="qty"
+                                onclick="document.getElementsByClassName('inp')[13].value = Number(document.getElementsByClassName('inp')[13].value)-1">-</button><input
+                                type="text" value="1" class="inp"><button class="qty"
+                                onclick="document.getElementsByClassName('inp')[13].value = Number(document.getElementsByClassName('inp')[13].value)+1">+</button>
+                            <br>
+                            <button onclick="location.replace('vegetables')"
+                                style="cursor: pointer; background-color: white; width: 56%; height: 25px; border: 1px solid #5d9508;">Add
+                                to Cart</button>
+                        </div>
+                    </div>
+                
+                    <div class="block column">
+                        <div class="item-image">
+                            <img src="css/images/potato.jpg" alt="Potato">
+                        </div>
+                        <div class="detail">Potato <br>₹50</div>
+                        <div class="btns">
+                            <button class="qty"
+                                onclick="document.getElementsByClassName('inp')[14].value = Number(document.getElementsByClassName('inp')[14].value)-1">-</button><input
+                                type="text" value="1" class="inp"><button class="qty"
+                                onclick="document.getElementsByClassName('inp')[14].value = Number(document.getElementsByClassName('inp')[14].value)+1">+</button>
+                            <br>
+                            <button onclick="location.replace('vegetables')"
+                                style="cursor: pointer; background-color: white; width: 56%; height: 25px; border: 1px solid #5d9508;">Add
+                                to Cart</button>
+                        </div>
+                    </div>
+                
+                    <div class="block column">
+                        <div class="item-image">
+                            <img src="css/images/tomato.jpg" alt="Tomato">
+                        </div>
+                        <div class="detail">Tomato <br>₹50</div>
+                        <div class="btns">
+                            <button class="qty"
+                                onclick="document.getElementsByClassName('inp')[15].value = Number(document.getElementsByClassName('inp')[15].value)-1">-</button><input
+                                type="text" value="1" class="inp"><button class="qty"
+                                onclick="document.getElementsByClassName('inp')[15].value = Number(document.getElementsByClassName('inp')[15].value)+1">+</button>
+                            <br>
+                            <button onclick="location.replace('vegetables')"
+                                style="cursor: pointer; background-color: white; width: 56%; height: 25px; border: 1px solid #5d9508;">Add
+                                to Cart</button>
+                        </div>
+                    </div>
+                </div>
+                {{> footer }}
+            </div>
+        </div>
+    </div> 
+    
+    {{else}}
+        <div class="popup-screen">
+            <div class="popup-box">
+                <i class="fas fa-times close-btn"></i>
+                <h2>Location</h2>
+                <input type="text" name="loc" id="loc" placeholder="Enter Location Manually">
+                <button id="location">Detect Location</button>
+            </div>
+        </div>
+        
+        <div class="contain">
+            <img src="css/images/back.png" id="back">
+            <h1 class="welcome">Welcome to Your Mandi</h1>
+            <button class="btn" onclick="window.location.href = 'register';">Get Started</button>
+        
+            <div class="about" style="height:200px;" id="about">
+                <center>
+                    <h1 style="text-decoration: underline;">About Us</h1>
+                </center>
+                <div style="float:left; height:100%; width:25%"><img src="css/images/about.png" alt="about" style="    margin-left: 6%;
+    width: 167%;
+    height: 136%;
+    margin-top: 6%;"></div>
+        
+                <div style="float: right;
+                        width: 55%;
+                        margin: 0px;
+                        height: 100px;">
+                <center><h1><b>What do we have?</b></h1></center>
+                
+                <p style="padding: 2px;">The objective of our work is to enhance vegetable pricing analysis. Our tool began by
+                    making
+                    minor adjustments, but has since tremendously improved.</p>
+                <br>
+                <br>
+                <center>
+                    <h2><b>Objective</b></h2>
+                </center>
+                <p style="padding: 2px;">We are working to improve the farming community's comprehension of pricing changes. If
+                    we have
+                    better analytical tools, we can lessen price spikes for vegetables. This tool is simple to use
+                    for the farming community.</p>
+                    </div>
+        
+        
+                <br><br>
+                <center>
+                    <h1 style="color: #621111;; font-size: 50px ;margin-top:20%">Explore Bunch of Vegetables with Us <br>
+                        at LOWEST Price Gauranteed!!
+                    </h1>
+                </center>
+        
+        
+                <div class="sample">
+        
+                    <div class="row_">
+        
+                        <div class="block column">
+                            <div class="item-image">
+                                <img src="css/images/green coriander.jpg" alt="Green Corriander">
+                            </div>
+                            <div class="detail">Green Coriander <br>₹50</div>
+                            <div class="btns">
+                                <button class="qty"
+                                    onclick="document.getElementsByClassName('inp')[12].value = Number(document.getElementsByClassName('inp')[12].value)-1">-</button><input
+                                    type="text" value="1" class="inp"><button class="qty"
+                                    onclick="document.getElementsByClassName('inp')[12].value = Number(document.getElementsByClassName('inp')[12].value)+1">+</button>
+                                <br>
+                                <button onclick="addcart()"
+                                    style="cursor: pointer; background-color: white; width: 56%; height: 25px; border: 1px solid #5d9508;">Add
+                                    to Cart</button>
+                            </div>
+                        </div>
+        
+                        <div class="block column">
+                            <div class="item-image">
+                                <img src="css/images/onion.jpg" alt="Onion">
+                            </div>
+                            <div class="detail">Onion <br>₹50</div>
+                            <div class="btns">
+                                <button class="qty"
+                                    onclick="document.getElementsByClassName('inp')[13].value = Number(document.getElementsByClassName('inp')[13].value)-1">-</button><input
+                                    type="text" value="1" class="inp"><button class="qty"
+                                    onclick="document.getElementsByClassName('inp')[13].value = Number(document.getElementsByClassName('inp')[13].value)+1">+</button>
+                                <br>
+                                <button onclick="addcart()"
+                                    style="cursor: pointer; background-color: white; width: 56%; height: 25px; border: 1px solid #5d9508;">Add
+                                    to Cart</button>
+                            </div>
+                        </div>
+        
+                        <div class="block column">
+                            <div class="item-image">
+                                <img src="css/images/potato.jpg" alt="Potato">
+                            </div>
+                            <div class="detail">Potato <br>₹50</div>
+                            <div class="btns">
+                                <button class="qty"
+                                    onclick="document.getElementsByClassName('inp')[14].value = Number(document.getElementsByClassName('inp')[14].value)-1">-</button><input
+                                    type="text" value="1" class="inp"><button class="qty"
+                                    onclick="document.getElementsByClassName('inp')[14].value = Number(document.getElementsByClassName('inp')[14].value)+1">+</button>
+                                <br>
+                                <button onclick="addcart()"
+                                    style="cursor: pointer; background-color: white; width: 56%; height: 25px; border: 1px solid #5d9508;">Add
+                                    to Cart</button>
+                            </div>
+                        </div>
+        
+                        <div class="block column">
+                            <div class="item-image">
+                                <img src="css/images/tomato.jpg" alt="Tomato">
+                            </div>
+                            <div class="detail">Tomato <br>₹50</div>
+                            <div class="btns">
+                                <button class="qty"
+                                    onclick="document.getElementsByClassName('inp')[15].value = Number(document.getElementsByClassName('inp')[15].value)-1">-</button><input
+                                    type="text" value="1" class="inp"><button class="qty"
+                                    onclick="document.getElementsByClassName('inp')[15].value = Number(document.getElementsByClassName('inp')[15].value)+1">+</button>
+                                <br>
+                                <button onclick="addcart()"
+                                    style="cursor: pointer; background-color: white; width: 56%; height: 25px; border: 1px solid #5d9508;">Add
+                                    to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    {{> footer }}
+                </div>
+            </div>
+        </div>
+    {{/if}}
+    <script type="text/javascript">
+            const popupScreen = document.querySelector(".popup-screen");
+            const popupBox = document.querySelector(".popup-box");
+            const closeBtn = document.querySelector(".close-btn");
+
+            window.addEventListener("load", () => {
+                setTimeout(() => {
+                    popupScreen.classList.add("active");
+                }, 0);
+            });
+
+            closeBtn.addEventListener("click", () => {
+                popupScreen.classList.remove("active"); //Close the popup screen on click the close button.
+                //Create a cookie for a day (to expire within a day) on click the close button.
+                document.cookie = "WebsiteName=testWebsite; max-age=" + 24 * 60 * 60; //1 day = 24 hours = 24*60*60
+            });
+
+            document.getElementById('location').addEventListener("click", function () {
+                if (navigator.geolocation) {
+                    navigator.geolocation.getCurrentPosition(setCookie);
+                    popupScreen.classList.remove("active");
+                }
+            });
+
+            function setCookie(pos) {
+                const d = new Date();
+                d.setTime(d.getTime() + (24 * 60 * 60 * 1000));
+                let expires = "expires=" + d.toUTCString();
+                document.cookie = "Loc" + pos.coords.lattitude + " " + pos.coords.longitude + ";" + expires + ";path=/";
+            }
+            const WebsiteCookie = document.cookie.indexOf("WebsiteName=");
+            const LocationCookie = document.cookie.indexOf("Loc=");
+
+            if (WebsiteCookie != -1 || LocationCookie != -1) {
+                popupScreen.style.display = "none"; //Hide the popup screen if the cookie is not expired.
+            }
+            else {
+                popupScreen.style.display = "flex"; //Show the popup screen if the cookie is expired.
+            }
+        </script>
+        
+</body>
+</html>

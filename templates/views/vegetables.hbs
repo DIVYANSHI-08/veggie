@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vegetables</title>
+    <link rel="stylesheet" href="css/veg.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+</head>
+
+<body>
+    {{> header isAuthenticated=isAuthenticated}}
+    <br>
+    <div>
+        <center>
+            <h1
+                style="color: #621111; font-size: 50px; font-family: cursive; width: 30%; float: left; position: relative; left: 35%; margin-bottom: 2%;">
+                ~ Vegetables ~
+            </h1>
+            <div class="shopping">
+                <img src="css/images/cart.png">
+                <span class="quantity">0</span>
+            </div>
+        </center>
+    </div>
+    <br>
+
+    {{#page vegg 4}}
+    <div class="row_">
+        {{#each items}}
+        <div class="block column">
+            <a href="/{{this._id}}" class="link">
+                <div class="item-image">
+                    <img src="{{this.image}}" alt="{{this.name}}">
+                </div>
+                <div class="detail">{{this.name}} <br>Rs.{{this.today}}/kg</div>
+            </a>
+            <div class="btns">
+                <form action="/cart/add" method="post">
+                    <input type="button" value="-" class="qty" onclick="subtract({{@index}})"><input type="text"
+                        value="1" class="inp" name="qty"><input type="button" value="+" class="qty"
+                        onclick="add({{@index}})">
+                    <br>
+                    <input type="hidden" name="item_id" value="{{this._id}}">
+                    <input type="hidden" name="item_name" value="{{this.name}}">
+                    <input type="hidden" name="item_img" value="{{this.image}}">
+                    <input type="hidden" name="item_price" value="{{this.today}}">
+                    <button onclick="addcart({{@index}})"
+                        style="cursor: pointer; background-color: white; width: 56%; height: 25px; border: 1px solid #5d9508;">Add
+                        to
+                        Cart</button>
+                </form>
+            </div>
+        </div>
+
+        <script>
+
+            function subtract(i) {
+                var x = Number(document.getElementsByClassName('inp')[i].value);
+                if (x > 1)
+                    document.getElementsByClassName('inp')[i].value = x - 1;
+            }
+
+            function add(i) {
+                var x = Number(document.getElementsByClassName('inp')[i].value);
+                if (x < 9)
+                    document.getElementsByClassName('inp')[i].value = x + 1;
+            }
+        </script>
+        {{/each}}
+    </div>
+    {{/page}}
+
+    <script>
+        var cnt = 0; 
+    </script>
+    <div class="card">
+        <h1>Cart</h1>
+        <ul class="listCard">
+           {{#if crt.items.length}}
+            {{#each crt.items}}
+            <li>
+                <script>cnt++;</script>
+                <div><img src="{{this.image}}" alt=""></div>
+                <div>{{this.name}}</div>
+                <div>{{this.quantity}}</div>
+                <div>{{this.price}}</div>
+                <div><form action="/cart/remove" method="post"><input type="hidden" name="itemId" value="{{this.item_id}}"><input type="submit" value="Remove"></form></div>
+            </li>
+            {{/each}}
+            {{else}}
+            <p>Your cart is empty.</p>
+            {{/if}}
+        </ul>
+
+        <div class="checkOut">
+            <a href="payment" style="text-decoration:none">
+                <div class="total">Proceed</div>
+            </a>
+            <div class="closeShopping">Close</div>
+        </div>
+    </div>
+
+    <script>
+        let body = document.querySelector('body');
+        let openShopping = document.querySelector('.shopping');
+        let closeShopping = document.querySelector('.closeShopping');
+
+        openShopping.addEventListener('click', () => {
+            body.classList.add('active');
+        })
+        closeShopping.addEventListener('click', () => {
+            body.classList.remove('active');
+        })
+        var x = document.querySelector('.quantity');
+        x.innerHTML = cnt; 
+    </script>
+
+    <br>
+
+    {{> footer }}
+
+</body>
+
+</html>
